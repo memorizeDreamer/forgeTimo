@@ -15,6 +15,7 @@
         <module>logistics</module>
         <module>payment</module>
         <module>common</module>
+        <module>config</module>
     </modules>
 
 
