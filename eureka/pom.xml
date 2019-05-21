@@ -11,5 +11,37 @@
 
     <artifactId>eureka</artifactId>
 
+    <repositories>
+        <repository>
+            <id>EmotibotRepo</id>
+            <url>http://docker-reg.emotibot.com.cn:8081/artifactory/libs-snapshot-local</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>EmotibotRepo</id>
+            <name>dfb384e4182c-snapshots</name>
+            <url>http://docker-reg.emotibot.com.cn:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
