@@ -20,8 +20,9 @@ public class LoginController {
     public ServerResponse login(@RequestBody User user){
         UserVo userVo = new UserVo();
         user = (User)userService.login(user.getUsername(),user.getPassword()).getData();
-        if (user != null)
-            BeanUtils.copyProperties(user,userVo);
+        if (user != null) {
+            BeanUtils.copyProperties(user, userVo);
+        }
         return user == null ? ServerResponse.createByError() : ServerResponse.createBySuccess(userVo);
     }
 }
