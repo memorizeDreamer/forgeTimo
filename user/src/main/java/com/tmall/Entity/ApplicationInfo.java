@@ -24,4 +24,11 @@ public class ApplicationInfo {
     private Long createTime;
 
     private String username;
+
+    public ApplicationInfo(String clientId, String secret,Long createTime, String username){
+        this.clientId = clientId;
+        this.createTime = createTime;
+        this.secret = secret;
+        this.username = username;
+    }
 }

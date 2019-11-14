@@ -3,9 +3,11 @@ package com.tmall.service;
 import com.liufeng.BaseResponse.ResponseCode;
 import com.liufeng.BaseResponse.ServerResponse;
 import com.liufeng.util.MD5Util;
+import com.tmall.Entity.ApplicationInfo;
 import com.tmall.Entity.CodeString;
 import com.tmall.Entity.User;
 import com.tmall.constants.Const;
+import com.tmall.repository.ApplicationInfoRepository;
 import com.tmall.repository.CodeStringRepository;
 import com.tmall.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +41,9 @@ public class UserService {
 
     @Autowired
     private CodeStringRepository codeStringRepository;
+
+    @Autowired
+    private ApplicationInfoRepository applicationInfoRepository;
 
     @Value("${code.string.max}")
     private Integer codeStringMaxNums;
@@ -106,6 +111,9 @@ public class UserService {
         user.setCreateDate(System.currentTimeMillis());
         user.setUpdateDate(System.currentTimeMillis());
         userRepository.save(user);
+        // 注册成功生成 clienId和secret
+        ApplicationInfo applicationInfo = new ApplicationInfo(UUID.randomUUID().toString(),UUID.randomUUID().toString(),System.currentTimeMillis(),user.getUsername());
+        applicationInfoRepository.save(applicationInfo);
         return ServerResponse.createBySuccessMessage("注册成功");
     }
 
