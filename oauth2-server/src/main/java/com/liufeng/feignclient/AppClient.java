@@ -22,7 +22,7 @@ public interface AppClient {
     class FeignClientFallbackFactory implements FallbackFactory<AppClient> {
         @Override
         public AppClient create(Throwable cause) {
-            return app -> new ServerResponse<>(-1, null);
+            return app -> ServerResponse.createByError();
         }
 
     }

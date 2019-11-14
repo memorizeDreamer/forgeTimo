@@ -1,4 +1,6 @@
 com/liufeng/BaseResponse/ServerResponse.class
 com/liufeng/BaseResponse/ResponseCode.class
-com/liufeng/CommonApplication.class
+com/liufeng/util/JsonUtils.class
+com/liufeng/util/MD5Util.class
 com/liufeng/common_constants/Constants.class
+com/liufeng/CommonApplication.class

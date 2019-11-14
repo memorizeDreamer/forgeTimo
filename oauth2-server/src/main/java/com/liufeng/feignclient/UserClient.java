@@ -20,7 +20,7 @@ public interface UserClient {
     class FeignClientFallbackFactory implements FallbackFactory<UserClient> {
         @Override
         public UserClient create(Throwable cause) {
-            return username -> new ServerResponse<>(-1, null);
+            return username -> ServerResponse.createByError();
         }
     }
 }

@@ -14,6 +14,8 @@ import java.sql.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @Column(name = "userid")
     private String userId;
 
@@ -22,10 +24,10 @@ public class User {
     private String password;
 
     @Column(name = "update_date")
-    private Date updateDate;
+    private Long updateDate;
 
     @Column(name = "create_date")
-    private Date createDate;
+    private Long createDate;
 
     @Column(name = "phone_num")
     private String phoneNum;
